@@ -15,6 +15,9 @@ namespace FlickrViewer
       // Use your Flickr API key here--you can get one at:
       // http://www.flickr.com/services/apps/create/apply
        private const string KEY = "19cb7365cfe33d8aa665a20fb5d705c3";
+        //Flickr Viewer
+        //Key:    19cb7365cfe33d8aa665a20fb5d705c3
+        //Secret: 44b23122aa80cb8d
 
       // object used to invoke Flickr web service
       private WebClient flickrClient = new WebClient();
