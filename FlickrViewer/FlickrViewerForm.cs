@@ -69,8 +69,8 @@ namespace FlickrViewer
             // gather information on all photos
             var flickrPhotos =
                from photo in flickrXML.Descendants( "photo" )
-               let id = photo.Attribute( "___________" ).Value
-               let title = photo.Attribute( "_______" ).Value
+               let id = photo.Attribute( "id" ).Value
+               let title = photo.Attribute( "title" ).Value
                let secret = photo.Attribute( "secret" ).Value
                let server = photo.Attribute( "server" ).Value
                let farm = photo.Attribute( "farm" ).Value
@@ -79,13 +79,13 @@ namespace FlickrViewer
                   Title = title,
                   URL = string.Format(
                      "http://farm{0}.staticflickr.com/{1}/{2}_{3}.jpg",
-                     farm, _________, id, secret )
+                     farm, server, id, secret )
                };
             imagesListBox.Items.Clear(); // clear imagesListBox
             // set ListBox properties only if results were found
             if ( flickrPhotos.Any() )
             {
-               imagesListBox.DataSource = __________________.ToList();
+               imagesListBox.DataSource = flickrPhotos.ToList();
                imagesListBox.DisplayMember = "Title";
             } // end if 
             else // no matches were found
