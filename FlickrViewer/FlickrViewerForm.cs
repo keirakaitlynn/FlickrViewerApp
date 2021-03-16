@@ -64,10 +64,10 @@ namespace FlickrViewer
          {
             // invoke Flickr web service to search Flick with user's tags
             flickrTask = 
-               flickrClient.DownloadStringTaskAsync( _____________________ );
+               flickrClient.DownloadStringTaskAsync( flickrURL );
 
             // await flickrTask then parse results with XDocument and LINQ
-            XDocument flickrXML = XDocument.Parse( await ______________ );
+            XDocument flickrXML = XDocument.Parse( await flickrTask );
 
             // gather information on all photos
             var flickrPhotos =
@@ -118,7 +118,7 @@ namespace FlickrViewer
             // use WebClient to get selected image's bytes asynchronously
             WebClient imageClient = new WebClient();
             byte[] imageBytes = await imageClient.DownloadDataTaskAsync( 
-               __________________ );
+               selectedURL );
 
             // display downloaded image in pictureBox
             MemoryStream memoryStream = new MemoryStream( imageBytes );
